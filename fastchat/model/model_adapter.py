@@ -505,14 +505,12 @@ class H2OGPTAdapter(BaseAdapter):
     def get_default_conv_template(self, model_path: str) -> Conversation:
         return get_conv_template("h2ogpt")
 
-class WizardVicunaAdapter(BaseAdapter):
+class WizardVicunaAdapter(VicunaAdapter):
     """The model adapter for junelee/wizard-vicuna-13b."""
 
     def match(self, model_path: str):
         return "wizard-vicuna" in model_path
 
-    def get_default_conv_template(self, model_path: str) -> Conversation:
-        return get_conv_template("vicuna_v1.1")
 
 # Note: the registration order matters.
 # The one registered earlier has a higher matching priority.
